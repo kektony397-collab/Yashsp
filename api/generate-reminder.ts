@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from '@google/genai';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
@@ -25,7 +24,7 @@ export default async function handler(
     
     const geminiResponse = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
-      contents: [{ parts: [{ text: prompt }] }],
+      contents: prompt,
     });
 
     const reminder = geminiResponse.text;

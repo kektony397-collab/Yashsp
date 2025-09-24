@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import KalmanFilter from 'kalman-filter';
 import { haversineDistance } from '../lib/haversine';
@@ -44,7 +43,7 @@ export const useGeolocation = () => {
 
         setPosition({
           latitude: smoothedLatitude,
-          longitude, // keep original longitude for some uses if needed
+          longitude: smoothedLongitude,
           speed,
           error: null,
         });

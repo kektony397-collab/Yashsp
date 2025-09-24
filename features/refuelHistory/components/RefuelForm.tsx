@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAppStore } from '../../../store';
 import { parseRefuelText } from '../../../services/geminiService';
@@ -6,8 +5,11 @@ import { Sparkles, Loader2 } from 'lucide-react';
 
 const RefuelForm: React.FC = () => {
   const { addRefuelRecord, setBikeState } = useAppStore((state) => state.actions);
-  const totalOdometerKm = useAppStore((state) => state.totalOdometerKm);
-  const tankCapacityL = useAppStore((state) => state.tankCapacityL);
+  const { totalOdometerKm, tankCapacityL, currentFuelL } = useAppStore((state) => ({
+    totalOdometerKm: state.totalOdometerKm,
+    tankCapacityL: state.tankCapacityL,
+    currentFuelL: state.currentFuelL,
+  }));
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -27,10 +29,9 @@ const RefuelForm: React.FC = () => {
         litersAdded: result.litersAdded,
         totalOdometerKm: totalOdometerKm,
       });
-      // After adding fuel, update the current fuel level.
-      // Assuming a fill-up if text was "filled up", or adding amount otherwise.
-      // For simplicity, we assume any refuel log fills the tank.
-      setBikeState({ currentFuelL: tankCapacityL }); 
+      // Correctly add the new fuel to the current level, capped at tank capacity.
+      const newFuelLevel = Math.min(tankCapacityL, currentFuelL + result.litersAdded);
+      setBikeState({ currentFuelL: newFuelLevel });
       setInputValue('');
       setError('');
     }
