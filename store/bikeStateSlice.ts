@@ -9,13 +9,13 @@ export interface BikeState {
   isGpsAvailable: boolean;
   isNetworkAvailable: boolean;
   actions: {
-    setBikeState: (state: Partial<BikeState>) => void;
+    setBikeState: (state: Partial<Omit<BikeState, 'actions'>>) => void;
     consumeFuel: (liters: number) => void;
     addTripKm: (km: number) => void;
   };
 }
 
-export const createBikeStateSlice: StateCreator<BikeState> = (set, get) => ({
+export const createBikeStateSlice: StateCreator<BikeState> = (set, _get) => ({
   currentFuelL: 0,
   tripKm: 0,
   totalOdometerKm: 10000, // Default starting value

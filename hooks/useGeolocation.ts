@@ -37,7 +37,7 @@ export const useGeolocation = () => {
         const { latitude, longitude, speed } = pos.coords;
 
         // Apply Kalman Filter for smoothing
-        const prediction = kf.predict();
+        kf.predict();
         const corrected = kf.correct([latitude, longitude]);
         const smoothedLatitude = corrected.state[0];
         const smoothedLongitude = corrected.state[1];

@@ -12,7 +12,7 @@ export interface SettingsState {
   };
 }
 
-export const createSettingsSlice: StateCreator<SettingsState> = (set, get) => ({
+export const createSettingsSlice: StateCreator<SettingsState> = (set, _get) => ({
   bikeModel: 'Honda Dream Yuga',
   tankCapacityL: 8,
   fuelEconomyKmPerL: 55, // default

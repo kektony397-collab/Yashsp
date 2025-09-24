@@ -3,7 +3,6 @@ import React from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../services/db';
 import { FixedSizeList as List } from 'react-window';
-import { RefuelRecord } from '../../../types';
 import { Fuel } from 'lucide-react';
 
 const HistoryList: React.FC = () => {

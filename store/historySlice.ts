@@ -14,7 +14,7 @@ export interface HistoryState {
 
 // Note: This slice doesn't need to hold the data itself, as we'll use dexie-react-hooks.
 // The actions here are for writing to the DB.
-export const createHistorySlice: StateCreator<HistoryState> = (set, get) => ({
+export const createHistorySlice: StateCreator<HistoryState> = (_set, _get) => ({
   refuelRecords: [], // Will be populated by useLiveQuery
   tripLogs: [], // Will be populated by useLiveQuery
   actions: {

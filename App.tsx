@@ -1,6 +1,6 @@
 
 import React, { useState, Suspense, lazy } from 'react';
-import { Gauge, Fuel, Wrench, Settings, History, LayoutDashboard } from 'lucide-react';
+import { Settings, History, LayoutDashboard } from 'lucide-react';
 
 const DashboardPage = lazy(() => import('./features/dashboard/DashboardPage'));
 const RefuelHistoryPage = lazy(() => import('./features/refuelHistory/RefuelHistoryPage'));
