@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Smart Bike Dashboard",
+  "description": "An intelligent, offline-first Progressive Web App for motorcyclists to track trips, fuel consumption, and maintenance with AI-powered insights.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
